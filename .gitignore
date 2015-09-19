@@ -1,0 +1,14 @@
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+
+
+.elasticbeanstalk/
+.idea/
+.vagrant/
+Vagrantfile
+/config/database.php
+
+
