@@ -18,4 +18,5 @@ Route::get('/', function () {
 get('blog', 'BlogController@index');
 get('blog/create','BlogController@create');
 get('blog/{slug}', 'BlogController@showPost');
+post('blog','BlogController@store');
 

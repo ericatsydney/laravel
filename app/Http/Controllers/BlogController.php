@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Carbon\Carbon;
+use Request;
 
 class BlogController extends Controller
 {
@@ -30,5 +30,15 @@ class BlogController extends Controller
   public function create()
   {
     return view('blog.create');
+  }
+
+  public function store()
+  {
+    $input = Request::all();
+    $input['published_at'] = Carbon::now();
+
+    Post::create($input);
+
+    return redirect('blog');
   }
 }
