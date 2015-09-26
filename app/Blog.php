@@ -12,7 +12,8 @@ class Blog extends Model
   protected $fillable = [
     'title',
     'content',
-    'published_at'
+    'published_at',
+    'user_id' //temporary!!
   ];
 
   public function scopePublished($query)
@@ -37,5 +38,10 @@ class Blog extends Model
   public function setPublishedAtAttribute($date)
   {
     $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
+  }
+
+  public function user()
+  {
+    return $this->belongsTo('App\User');
   }
 }

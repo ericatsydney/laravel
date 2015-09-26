@@ -15,8 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-get('blog', 'BlogController@index');
-get('blog/create','BlogController@create');
-get('blog/{slug}', 'BlogController@showPost');
-post('blog','BlogController@store');
+
+Route::resource('blog','BlogController');
+//get('blog', 'BlogController@index');
+//get('blog/create','BlogController@create');
+//get('blog/{slug}', 'BlogController@show');
+//post('blog','BlogController@store');
+//get('blog/{slug}/edit','BlogController@edit');
+
+Route::controllers([
+   'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
 

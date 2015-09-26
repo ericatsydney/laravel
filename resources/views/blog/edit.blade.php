@@ -1,11 +1,9 @@
 @extends('app')
 
 @section('content')
-    <h1> Create a New blog</h1>
+    <h1> Edit {!! $blog->title !!}</h1>
     <hr/>
-    {!! Form::open(['url' => 'blog']) !!}
-
-    {!! Form::hidden('user_id', 1) !!}
+    {!! Form::model($blog, ['method' => 'PATCH', 'url' => 'blog/' . $blog->slug]) !!}
     <div clas="form-group">
         {!! Form::label('title', 'Title:') !!}
         {!! Form::text('title',null,['class' => 'form-control']) !!}
@@ -22,9 +20,9 @@
     </div>
     <hr/>
     <div clas="form-group">
-        {!! Form::submit('Add Blog',['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::submit('Update Blog',['class' => 'btn btn-primary form-control']) !!}
     </div>
 
 
     {!! Form::close() !!}
-@stop
+@Stop
