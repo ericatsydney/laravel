@@ -20,10 +20,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Post::class, function ($faker) {
+$factory->define(App\Blog::class, function ($faker) {
+    $dateObject = $faker->dateTimeBetween('-1 month', '+3 days');
     return [
       'title' => $faker->sentence(mt_rand(3, 10)),
       'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
-      'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
+      'published_at' => $faker->dateTimeBetween('-1 month', '+3 days')->format('Y-m-d'),
     ];
 });

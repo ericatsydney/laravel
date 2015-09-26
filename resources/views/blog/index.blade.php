@@ -1,19 +1,19 @@
 @extends('app')
 @section('content')
 <h1>{{ config('blog.title') }}</h1>
-<h5>Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }}</h5>
+<h5>Page {{ $blogs->currentPage() }} of {{ $blogs->lastPage() }}</h5>
 <hr>
 <ul>
-    @foreach ($posts as $post)
+    @foreach ($blogs as $blog)
         <li>
-            <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
-            <em>({{ $post->published_at->format('M jS Y g:ia') }})</em>
+            <a href="/blog/{{ $blog->slug }}">{{ $blog->title }}</a>
+            <em>({{ $blog->published_at->format('M jS Y g:ia') }})</em>
             <p>
-                {{ str_limit($post->content) }}
+                {{ str_limit($blog->content) }}
             </p>
         </li>
     @endforeach
 </ul>
 <hr>
-{!! $posts->render() !!}
+{!! $blogs->render() !!}
 @stop
