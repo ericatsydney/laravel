@@ -5,7 +5,6 @@
     <hr/>
     {!! Form::open(['url' => 'blog']) !!}
 
-    {!! Form::hidden('user_id', 1) !!}
     <div clas="form-group">
         {!! Form::label('title', 'Title:') !!}
         {!! Form::text('title',null,['class' => 'form-control']) !!}

@@ -8,12 +8,12 @@ use App\Http\Controllers\Controller;
 use App\Blog;
 use Carbon\Carbon;
 use Request;
+use Auth;
 
 class BlogController extends Controller
 {
   public function index()
   {
-    return \Auth::user();
     $blogs = Blog::latest('published_at')->published()
       ->paginate(config('blog.posts_per_page'));
 
@@ -33,7 +33,10 @@ class BlogController extends Controller
 
   public function store()
   {
-    Blog::create(Request::all());
+    $blog = new Blog(Request::all());
+
+    Auth::user()->blogs()->save($blog);
+//    Blog::create(Request::all());
 
     return redirect('blog');
   }
