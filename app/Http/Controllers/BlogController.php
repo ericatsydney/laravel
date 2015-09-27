@@ -7,8 +7,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Blog;
 use Carbon\Carbon;
-use Request;
 use Auth;
+use App\Http\Requests\BlogRequest;
 
 class BlogController extends Controller
 {
@@ -31,12 +31,12 @@ class BlogController extends Controller
     return view('blog.create');
   }
 
-  public function store()
+  public function store(BlogRequest $request)
   {
-    $blog = new Blog(Request::all());
+
+    $blog = new Blog($request->all());
 
     Auth::user()->blogs()->save($blog);
-//    Blog::create(Request::all());
 
     return redirect('blog');
   }
@@ -47,11 +47,11 @@ class BlogController extends Controller
     return view('blog.edit', compact('blog'));
   }
 
-  public function update($slug)
+  public function update($slug, BlogRequest $request)
   {
     $blog = Blog::whereSlug($slug)->firstOrFail();
 
-    $blog->update(Request::all());
+    $blog->update($request->all());
 
     return redirect('blog');
   }
