@@ -9,9 +9,13 @@ use App\Blog;
 use Carbon\Carbon;
 use Auth;
 use App\Http\Requests\BlogRequest;
-
+use Session;
 class BlogController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth', ['except' => 'index']);
+  }
   public function index()
   {
     $blogs = Blog::latest('published_at')->published()
@@ -37,6 +41,8 @@ class BlogController extends Controller
     $blog = new Blog($request->all());
 
     Auth::user()->blogs()->save($blog);
+
+    session()->flash('flash_message', 'Your blog has been created!');
 
     return redirect('blog');
   }
