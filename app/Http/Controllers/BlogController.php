@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Blog;
+use App\Tag;
 use Carbon\Carbon;
 use Auth;
 use App\Http\Requests\BlogRequest;
@@ -32,15 +33,17 @@ class BlogController extends Controller
 
   public function create()
   {
-    return view('blog.create');
+    $tags = Tag::lists('name','id');
+    return view('blog.create', compact('tags'));
   }
 
   public function store(BlogRequest $request)
   {
+    $blog = Auth::user()->blogs()->create($request->all());
 
-    $blog = new Blog($request->all());
+    $tagIds = $request->input('tags');
 
-    Auth::user()->blogs()->save($blog);
+    $blog->tags()->attach($request->input('tags'));
 
     session()->flash('flash_message', 'Your blog has been created!');
 
@@ -49,8 +52,9 @@ class BlogController extends Controller
 
   public function edit($slug)
   {
+    $tags = Tag::lists('name','id');
     $blog = Blog::whereSlug($slug)->firstOrFail();
-    return view('blog.edit', compact('blog'));
+    return view('blog.edit', compact('blog','tags'));
   }
 
   public function update($slug, BlogRequest $request)

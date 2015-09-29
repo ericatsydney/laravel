@@ -8,4 +8,13 @@
     <button class="btn btn-primary" onclick="history.go(-1)">
         « Back
     </button>
+
+    @unless($blog->tags->isEmpty())
+        <h5>Tags:</h5>
+        <ul>
+            @foreach($blog->tags as $tag)
+                <li> {{$tag->name}}</li>
+            @endforeach
+        </ul>
+    @endunless
 @stop

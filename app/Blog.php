@@ -47,6 +47,11 @@ class Blog extends Model
 
   public function tags()
   {
-    return $this->belongsToMany('App\Tag');
+    return $this->belongsToMany('App\Tag')->withTimestamps();
+  }
+
+  public function tagsList()
+  {
+    return $this->tags->lists('id','id')->all();
   }
 }
