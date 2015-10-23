@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Blog;
@@ -15,8 +14,14 @@ class BlogController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('auth', ['except' => 'index']);
+    $this->middleware('auth', ['except' => ['index','show']]);
   }
+
+  /**
+   * @return \Illuminate\View\View
+   *
+   * This function will return the index view.
+   */
   public function index()
   {
     $blogs = Blog::latest('published_at')->published()
@@ -25,18 +30,34 @@ class BlogController extends Controller
     return view('blog.index', compact('blogs'));
   }
 
-  public function show($slug)
+  /**
+   * @param Blog $blog
+   * @return mixed
+   *
+   * This function will return the single blog view.
+   */
+  public function show(Blog $blog)
   {
-    $blog = Blog::whereSlug($slug)->firstOrFail();
     return view('blog.post')->withBlog($blog);
   }
 
+  /**
+   * @return \Illuminate\View\View
+   *
+   * This function will return the view to create blog.
+   */
   public function create()
   {
     $tags = Tag::lists('name','id');
     return view('blog.create', compact('tags'));
   }
 
+  /**
+   * @param BlogRequest $request
+   * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+   *
+   * This function will create blog to DB and show corresponding message.
+   */
   public function store(BlogRequest $request)
   {
     $blog = Auth::user()->blogs()->create($request->all());
@@ -50,17 +71,27 @@ class BlogController extends Controller
     return redirect('blog');
   }
 
-  public function edit($slug)
+  /**
+   * @param Blog $blog
+   * @return \Illuminate\View\View
+   *
+   * This function will return the edit view.
+   */
+  public function edit(Blog $blog)
   {
     $tags = Tag::lists('name','id');
-    $blog = Blog::whereSlug($slug)->firstOrFail();
     return view('blog.edit', compact('blog','tags'));
   }
 
-  public function update($slug, BlogRequest $request)
+  /**
+   * @param Blog $blog
+   * @param BlogRequest $request
+   * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+   *
+   * This function will save the update to DB.
+   */
+  public function update(Blog $blog, BlogRequest $request)
   {
-    $blog = Blog::whereSlug($slug)->firstOrFail();
-
     $blog->update($request->all());
 
     return redirect('blog');

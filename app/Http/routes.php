@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::resource('blog','BlogController');
 //get('blog', 'BlogController@index');
 //get('blog/create','BlogController@create');
-//get('blog/{slug}', 'BlogController@show');
+//get('blog/{blog}', 'BlogController@show');
 //post('blog','BlogController@store');
 //get('blog/{slug}/edit','BlogController@edit');
 
