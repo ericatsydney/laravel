@@ -20,11 +20,15 @@ class CreateTagsTable extends Migration
 
         Schema::create('blog_tag', function(Blueprint $table)
         {
-            $table->integer('blog_id')->unsigned()->index();
-            $table->foreign('blog_id')->refernces('id')->on('blogs')->onDelete('cascade');
+            $table->integer('blog_id')->unsigned();
+            $table->foreign('blog_id')
+                  ->references('id')->on('blogs')
+                  ->onDelete('cascade');
 
-            $table->integer('tag_id')->unsigned()->index();
-            $table->foreign('tag_id')->refernces('id')->on('tags')->onDelete('cascade');
+            $table->integer('tag_id')->unsigned();
+            $table->foreign('tag_id')
+                  ->references('id')->on('tags')
+                  ->onDelete('cascade');
 
             $table->timestamps();
         });
