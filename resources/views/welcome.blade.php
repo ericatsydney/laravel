@@ -3,3 +3,4 @@
     This is welcome page
     <div id="map"></div>
 @stop
+

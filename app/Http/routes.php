@@ -28,4 +28,4 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-
+Route::resource('user','UserController');
