@@ -14,8 +14,8 @@ class AddGeoFieldsUsersTable extends Migration
   {
     Schema::table('users', function ($table) {
       $table->string('address')->unique();
-      $table->float('lat');
-      $table->float('lng');
+      $table->decimal('lat', 11, 8);
+      $table->decimal('lng', 11, 8);
     });
   }
 
