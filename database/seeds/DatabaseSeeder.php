@@ -14,19 +14,21 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
-        $this->call('BlogTableSeeder');
+        $this->call('UserTableSeeder');
+
+        $this->command->info('User table seeded!');
 
         Model::reguard();
     }
 }
 
-class BlogTableSeeder extends Seeder
-{
+class UserTableSeeder extends Seeder {
+
     public function run()
     {
-        App\Blog::truncate();
+        DB::table('users')->delete();
 
-        factory(App\Blog::class, 20)->create();
+        factory(App\User::class, 20)->create();
     }
+
 }

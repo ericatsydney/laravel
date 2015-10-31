@@ -19,5 +19,3 @@ $.getJSON('/user', function($users) {
 });
 console.log(bounds);
 map.fitBounds(bounds, {padding: [20, 20]});
-
-//# sourceMappingURL=app.js.map

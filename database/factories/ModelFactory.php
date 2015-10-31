@@ -15,16 +15,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'address' => $faker->address,
+        'lat' => $faker->latitude,
+        'lng' => $faker->longitude,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
-    ];
-});
-
-$factory->define(App\Blog::class, function ($faker) {
-    $dateObject = $faker->dateTimeBetween('-1 month', '+3 days');
-    return [
-      'title' => $faker->sentence(mt_rand(3, 10)),
-      'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
-      'published_at' => $faker->dateTimeBetween('-1 month', '+3 days')->format('Y-m-d'),
     ];
 });
