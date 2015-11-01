@@ -12,6 +12,9 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+  mix.copy('bower_components/leaflet.markercluster/dist/leaflet.markercluster.js','public/js/leaflet.markercluster.js');
+  mix.copy('bower_components/leaflet.markercluster/dist/MarkerCluster.css','public/css/MarkerCluster.css');
+  mix.copy('bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css','public/css/MarkerCluster.Default.css');
   mix.sass('app.scss');
   mix.scripts('app.js');
 });
