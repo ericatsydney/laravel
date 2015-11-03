@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder {
     {
         DB::table('users')->delete();
 
-        factory(App\User::class, 1000)->create();
+        factory(App\User::class, 20)->create();
     }
 
 }
