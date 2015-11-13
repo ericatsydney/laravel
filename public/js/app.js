@@ -20,4 +20,10 @@ $.getJSON('/user', function($users) {
   map.fitBounds(bounds, {padding: [20, 20]});
 });
 
+
+var geoCodeFwd = 'https://api.mapbox.com/geocoding/v5/mapbox.places/1600+pennsylvania+ave+nw.json?access_token=&lt;your%20access%20token&gt;';
+$.getJSON(geoCodeFwd, function($result) {
+  console.log($result);
+})
+
 //# sourceMappingURL=app.js.map

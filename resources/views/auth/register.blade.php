@@ -21,6 +21,16 @@
     </div>
 
     <div>
+        lat
+        <input type="lat" name="lat" value="{{ old('lat') }}">
+    </div>
+
+    <div>
+        lng
+        <input type="lng" name="lng" value="{{ old('lng') }}">
+    </div>
+
+    <div>
         Password
         <input type="password" name="password">
     </div>

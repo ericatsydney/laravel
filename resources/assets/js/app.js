@@ -19,3 +19,8 @@ $.getJSON('/user', function($users) {
   map.addLayer(markers);
   map.fitBounds(bounds, {padding: [20, 20]});
 });
+var accessToken = pk.eyJ1IjoiZXJpY3RhbjgwIiwiYSI6ImNpZzUyNjNwbzNra3h1d2x2ZnV5OXFjZWIifQ.4WXMlCNO32swLF4_JH7b_g';
+var geoCodeFwd = 'https://api.mapbox.com/geocoding/v5/mapbox.places/1600+pennsylvania+ave+nw.json?access_token=' + accessToken;
+$.getJSON(geoCodeFwd, function($result) {
+  console.log($result);
+})
