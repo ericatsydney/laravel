@@ -20,12 +20,12 @@
         <input type="address" name="address" value="{{ old('address') }}">
     </div>
 
-    <div>
+    <div class="hidden">
         lat
         <input type="lat" name="lat" value="{{ old('lat') }}">
     </div>
 
-    <div>
+    <div class="hidden">
         lng
         <input type="lng" name="lng" value="{{ old('lng') }}">
     </div>

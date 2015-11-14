@@ -23,9 +23,9 @@
   <script src="//code.jquery.com/jquery.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
-  <script src="{{ URL::asset('/js/leaflet.markercluster.js') }}"></script>
-  <script src="{{ URL::asset('/js/Control.Geocoder.js') }}"></script>
-  <script src="{{ URL::asset('/js/app.js') }}"></script>
+  {{--<script src="{{ URL::asset('/js/leaflet.markercluster.js') }}"></script>--}}
+  {{--<script src="{{ URL::asset('/js/Control.Geocoder.js') }}"></script>--}}
+  <script src="{{ URL::asset('/js/min/all.js') }}"></script>
   @yield('footer')
 </body>
 </html>
