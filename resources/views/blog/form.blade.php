@@ -13,10 +13,10 @@
     {!! Form::input('date','published_at',date('Y-m-d'),['class' => 'form-control']) !!}
 </div>
 
-<div clas="form-group">
-    {!! Form::label('tags', 'Tags:') !!}
-    {!! Form::select('tags[]',$tags, $blog->tagsList(), ['class' => 'form-control', 'multiple']) !!}
-</div>
+{{--<div clas="form-group">--}}
+    {{--{!! Form::label('tags', 'Tags:') !!}--}}
+    {{--{!! Form::select('tags[]',$tags, $blog->tagsList(), ['class' => 'form-control', 'multiple']) !!}--}}
+{{--</div>--}}
 
 <hr/>
 <div clas="form-group">
