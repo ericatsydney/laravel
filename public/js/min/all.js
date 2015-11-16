@@ -1064,6 +1064,11 @@ $.getJSON('/user', function($users) {
   map.fitBounds(bounds, {padding: [20, 20]});
 });
 
+L.Control.geocoder({'placeholder':'search ...'}).addTo(map);
+
+$('leaflet-control-geocoder-icon').addClass('fa fa-search');
+
+
 $('input[name=address]').focusout(function() {
   var accessToken = 'pk.eyJ1IjoiZXJpY3RhbjgwIiwiYSI6ImNpZzUyNjNwbzNra3h1d2x2ZnV5OXFjZWIifQ.4WXMlCNO32swLF4_JH7b_g',
     address = $(this).val().replace(/ /g, '+').replace(/,/g, '+').replace(/\++/g, '+'),
