@@ -1,8 +1,7 @@
 <div class="jumbotron">
     <div id="slider">
-        <p>slider 1</p>
-        <p>slider 2</p>
-        <p>slider 3</p>
+        <div class="slider-image" style='background: url("{{ URL::asset('/images/slider/slider1.jpg') }}");'></div>
+        <div class="slider-image" style='background: url("{{ URL::asset('/images/slider/slider2.jpg') }}")'></div>
     </div>
     <div class="container">
         <form class="form-horizontal">

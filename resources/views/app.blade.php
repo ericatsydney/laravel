@@ -11,11 +11,7 @@
   // Only for home page
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
   {{--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>--}}
-  {{--<link href='{{ URL::asset('/css/animate.min.css') }}' rel='stylesheet'/>--}}
-  {{--<link href='{{ URL::asset('/css/lightbox.css') }}' rel='stylesheet'/>--}}
-  {{--<link href='{{ URL::asset('/css/main.css') }}' rel='stylesheet'/>--}}
-  {{--<link href='{{ URL::asset('/css/responsive.css') }}' rel='stylesheet'/>--}}
-    <link href='{{ URL::asset('/css/bootstrap.min.css') }}' rel='stylesheet'/>
+  <link href='{{ URL::asset('/css/bootstrap.min.css') }}' rel='stylesheet'/>
 </head>
 <body>
   @include('layout.navigation')
@@ -27,6 +23,7 @@
               {{ Session::get('flash_message') }}
           </div>
       @endif
+
 
       @yield('content')
       @include('layout.footer')

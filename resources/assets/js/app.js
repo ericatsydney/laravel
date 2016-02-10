@@ -39,6 +39,9 @@ $('input[name=address]').focusout(function() {
   }
 });
 
-$('#slider').slick();
-
-
+$('#slider').slick({
+  arrows: false,
+  dots: true,
+  fade: true,
+  cssEase: 'linear'
+});

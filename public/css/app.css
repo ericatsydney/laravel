@@ -5995,3 +5995,8 @@ button.close {
   height: 521px; }
 
 /*# sourceMappingURL=app.css.map */
+
+.slider-image {
+  background-size: cover !important;
+  height:400px !important;
+}
