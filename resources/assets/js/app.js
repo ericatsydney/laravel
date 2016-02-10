@@ -39,3 +39,6 @@ $('input[name=address]').focusout(function() {
   }
 });
 
+$('#slider').slick();
+
+

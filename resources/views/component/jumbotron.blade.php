@@ -1,4 +1,9 @@
 <div class="jumbotron">
+    <div id="slider">
+        <p>slider 1</p>
+        <p>slider 2</p>
+        <p>slider 3</p>
+    </div>
     <div class="container">
         <form class="form-horizontal">
             <fieldset>

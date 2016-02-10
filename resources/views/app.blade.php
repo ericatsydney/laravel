@@ -8,6 +8,8 @@
   <link rel='stylesheet' href='{{ URL::asset('/css/MarkerCluster.css') }}' />
   <link rel='stylesheet' href='{{ URL::asset('/css/Control.Geocoder.css') }}' />
   <link rel='stylesheet' href='{{ URL::asset('/css/MarkerCluster.Default.css') }}' />
+  // Only for home page
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
   {{--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>--}}
   {{--<link href='{{ URL::asset('/css/animate.min.css') }}' rel='stylesheet'/>--}}
   {{--<link href='{{ URL::asset('/css/lightbox.css') }}' rel='stylesheet'/>--}}
@@ -31,6 +33,7 @@
   </div> <!-- end of container -->
   <script src='//code.jquery.com/jquery.js'></script>
   <script src='http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js'></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
   <script src='{{ URL::asset('/js/min/all.js') }}'></script>
 </body>
 </html>
