@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -7,15 +8,30 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ExampleTest extends TestCase
 {
     /**
+     * First test
+     *
+     * @return void
+     */
+    public function test_user_name_is_not_empty()
+    {
+        // Given and when
+        $user = factory(User::class)->make([
+          'name' => 'Abigail',
+        ]);
+        // Then
+
+        $this->assertEquals('Abigail', $user->name);
+    }
+    /**
      * A basic functional test example.
      *
      * @return void
      */
-    public function testBasicExample()
-    {
+//    public function testBasicExample()
+//    {
 //        $this->visit('/')
-//             ->see('Laravel 4');
-
+//             ->see('3DGoMarts');
+//
 //        $host = 'http://www.flightcentre.com.au/';
 //        $path = 'holidays/beach-escapes/bali';
 //        $url = $host . $path;
@@ -40,11 +56,11 @@ class ExampleTest extends TestCase
 //        $pane_array[] = 'pane-fcl-static-forms-pane';
 //        $pane_array[] = 'pane-node-field-cvps';
 //        $patern = '/'. implode('(.*)',$pane_array) .'/s';
-        $response = file_get_contents("http://www.flightcentre.com.au//ajax/cache/fcl_service/170851/node/modal_display");
-        $this->assertEquals('HTTP/1.0 200 OK',$http_response_header[0]);
-        $this->assertNotNull(json_decode($response));
-        $response = file_get_contents("http://www.flightcentre.com.au//ajax/cache/fcl_service_render/170851/node/modal_display");
-        $this->assertEquals('HTTP/1.0 200 OK',$http_response_header[0]);
-        $this->assertNull(json_decode($response));
-    }
+//        $response = file_get_contents("http://www.flightcentre.com.au//ajax/cache/fcl_service/170851/node/modal_display");
+//        $this->assertEquals('HTTP/1.0 200 OK',$http_response_header[0]);
+//        $this->assertNotNull(json_decode($response));
+//        $response = file_get_contents("http://www.flightcentre.com.au//ajax/cache/fcl_service_render/170851/node/modal_display");
+//        $this->assertEquals('HTTP/1.0 200 OK',$http_response_header[0]);
+//        $this->assertNull(json_decode($response));
+//    }
 }
