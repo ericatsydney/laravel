@@ -8,29 +8,14 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ExampleTest extends TestCase
 {
     /**
-     * First test
-     *
-     * @return void
-     */
-    public function test_user_name_is_not_empty()
-    {
-        // Given and when
-        $user = factory(User::class)->make([
-          'name' => 'Abigail',
-        ]);
-        // Then
-
-        $this->assertEquals('Abigail', $user->name);
-    }
-    /**
      * A basic functional test example.
      *
      * @return void
      */
-//    public function testBasicExample()
-//    {
-//        $this->visit('/')
-//             ->see('3DGoMarts');
+    public function test_home_page_is_working()
+    {
+        $this->visit('/')
+             ->see('3DGoMart');
 //
 //        $host = 'http://www.flightcentre.com.au/';
 //        $path = 'holidays/beach-escapes/bali';
@@ -62,5 +47,5 @@ class ExampleTest extends TestCase
 //        $response = file_get_contents("http://www.flightcentre.com.au//ajax/cache/fcl_service_render/170851/node/modal_display");
 //        $this->assertEquals('HTTP/1.0 200 OK',$http_response_header[0]);
 //        $this->assertNull(json_decode($response));
-//    }
+    }
 }
