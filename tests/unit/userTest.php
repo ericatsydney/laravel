@@ -8,18 +8,24 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class userTest extends TestCase
 {
   /**
-   * First test
-   *
-   * @return void
+   * @test
    */
-  public function test_user_name_is_as_expected()
+  public function it_has_user_name()
   {
-    // Given and when
     $user = factory(User::class)->make([
       'name' => 'Abigail',
     ]);
-    // Then
-
     $this->assertEquals('Abigail', $user->name);
+  }
+
+  /**
+   * @test
+   */
+  public function it_has_email()
+  {
+    $user = factory(User::class)->make([
+      'email' => 'eric.g.x.tan@gmail.com'
+    ]);
+    $this->assertEquals('eric.g.x.tan@gmail.com', $user->email);
   }
 }
